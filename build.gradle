@@ -1,0 +1,15 @@
+apply plugin: "groovy"
+
+repositories {
+    mavenCentral()
+}
+    
+dependencies {
+    compile "org.codehaus.groovy:groovy-all:2.2.2"
+    testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
+}
+
+task(console, dependsOn: 'classes', type: JavaExec) {
+    main = 'groovy.ui.Console'
+    classpath = sourceSets.test.runtimeClasspath
+}
